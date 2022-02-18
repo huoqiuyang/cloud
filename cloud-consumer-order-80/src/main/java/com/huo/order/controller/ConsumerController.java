@@ -1,4 +1,4 @@
-package com.huo.consumer.controller;
+package com.huo.order.controller;
 
 import com.huo.common.entities.CommonResult;
 import com.huo.common.entities.Payment;

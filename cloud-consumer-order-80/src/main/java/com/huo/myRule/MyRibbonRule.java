@@ -1,6 +1,9 @@
-package com.huo.consumer;
+package com.huo.myRule;
 
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import com.netflix.loadbalancer.IRule;
+import com.netflix.loadbalancer.RandomRule;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * 　 功能描述
@@ -21,10 +24,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  * 　 @version 1.0
  * 　 @author huoqy
- * 　 @createDate 2022年02月16日 14:23
+ * 　 @createDate 2022年02月18日 15:11
  * 　 @since JDK1.8
  */
-@SpringBootApplication
-@EnableEurekaClient
-public class ConsumerZkApplication {
+@Configuration
+public class MyRibbonRule {
+    @Bean
+    public IRule myRule(){
+        // 定义为随机
+        return new RandomRule();
+    }
 }

@@ -1,6 +1,5 @@
-package com.huo.consumer.config;
+package com.huo.order.config;
 
-import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
  * 　 <p>
  * 　 工程名 ： cloud
  * 　 <p>
- * 　 授权 : (C) Copyright topwalk Corporation 2014-2021
+ * 　 授权 : (C) Copyright topwalk Corporation 2014-2022
  * 　 <p>
  * 　 公司 : 托尔思天行网安信息技术有限责任公司
  * 　 <p>
@@ -25,17 +24,15 @@ import org.springframework.web.client.RestTemplate;
  *
  * 　 @version 1.0
  * 　 @author huoqy
- * 　 @createDate 2021年12月13日 14:18
+ * 　 @createDate 2022年02月16日 14:40
  * 　 @since JDK1.8
  */
 @Configuration
 public class ApplicationContextConfig {
-
     @Bean
     @LoadBalanced
     public RestTemplate getRestTemplate(){
         return new RestTemplate();
     }
-
-
 }
+
