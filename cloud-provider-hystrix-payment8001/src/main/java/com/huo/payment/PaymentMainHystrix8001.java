@@ -1,7 +1,8 @@
-package com.huo.payment.service;
+package com.huo.payment;
 
-import com.huo.common.entities.Payment;
-
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
  * 　 功能描述
@@ -11,7 +12,7 @@ import com.huo.common.entities.Payment;
  * 　 <p>
  * 　 工程名 ： cloud
  * 　 <p>
- * 　 授权 : (C) Copyright topwalk Corporation 2014-2021
+ * 　 授权 : (C) Copyright topwalk Corporation 2014-2022
  * 　 <p>
  * 　 公司 : 托尔思天行网安信息技术有限责任公司
  * 　 <p>
@@ -22,12 +23,13 @@ import com.huo.common.entities.Payment;
  *
  * 　 @version 1.0
  * 　 @author huoqy
- * 　 @createDate 2021年12月09日 18:00
+ * 　 @createDate 2022年02月23日 16:45
  * 　 @since JDK1.8
  */
-public interface PaymentService {
-
-     int create(Payment payment);
-
-     Payment getPaymentById(Long id);
+@SpringBootApplication
+@EnableEurekaClient
+public class PaymentMainHystrix8001 {
+    public static void main(String[] args) {
+        SpringApplication.run(PaymentMainHystrix8001.class,args);
+    }
 }

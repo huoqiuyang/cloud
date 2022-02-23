@@ -1,7 +1,9 @@
-package com.huo.payment.service;
+package com.huo.payment;
 
-import com.huo.common.entities.Payment;
-
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.SpringApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
  * 　 功能描述
@@ -22,12 +24,14 @@ import com.huo.common.entities.Payment;
  *
  * 　 @version 1.0
  * 　 @author huoqy
- * 　 @createDate 2021年12月09日 18:00
+ * 　 @createDate 2021年12月09日 17:19
  * 　 @since JDK1.8
  */
-public interface PaymentService {
-
-     int create(Payment payment);
-
-     Payment getPaymentById(Long id);
+@SpringBootApplication
+@EnableEurekaClient
+@EnableDiscoveryClient
+public class PaymentMain8001 {
+    public static void main(String[] args) {
+        SpringApplication.run(PaymentMain8001.class,args);
+    }
 }

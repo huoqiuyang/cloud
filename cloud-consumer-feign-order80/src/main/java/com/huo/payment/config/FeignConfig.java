@@ -1,8 +1,8 @@
-package com.huo.payment;
+package com.huo.payment.config;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import feign.Logger;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * 　 功能描述
@@ -12,7 +12,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  * 　 <p>
  * 　 工程名 ： cloud
  * 　 <p>
- * 　 授权 : (C) Copyright topwalk Corporation 2014-2021
+ * 　 授权 : (C) Copyright topwalk Corporation 2014-2022
  * 　 <p>
  * 　 公司 : 托尔思天行网安信息技术有限责任公司
  * 　 <p>
@@ -23,13 +23,14 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  *
  * 　 @version 1.0
  * 　 @author huoqy
- * 　 @createDate 2021年12月09日 17:19
+ * 　 @createDate 2022年02月22日 17:12
  * 　 @since JDK1.8
  */
-@SpringBootApplication
-@EnableEurekaClient
-public class ApplicationMain8002 {
-    public static void main(String[] args) {
-        SpringApplication.run(ApplicationMain8002.class,args);
+@Configuration
+public class FeignConfig {
+
+    @Bean
+    Logger.Level feignLoggerLevel(){
+        return Logger.Level.FULL;
     }
 }

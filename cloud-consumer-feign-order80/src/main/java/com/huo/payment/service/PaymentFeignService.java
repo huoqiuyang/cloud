@@ -1,7 +1,11 @@
 package com.huo.payment.service;
 
+import com.huo.common.entities.CommonResult;
 import com.huo.common.entities.Payment;
-
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 /**
  * 　 功能描述
@@ -11,7 +15,7 @@ import com.huo.common.entities.Payment;
  * 　 <p>
  * 　 工程名 ： cloud
  * 　 <p>
- * 　 授权 : (C) Copyright topwalk Corporation 2014-2021
+ * 　 授权 : (C) Copyright topwalk Corporation 2014-2022
  * 　 <p>
  * 　 公司 : 托尔思天行网安信息技术有限责任公司
  * 　 <p>
@@ -22,12 +26,15 @@ import com.huo.common.entities.Payment;
  *
  * 　 @version 1.0
  * 　 @author huoqy
- * 　 @createDate 2021年12月09日 18:00
+ * 　 @createDate 2022年02月22日 15:39
  * 　 @since JDK1.8
  */
-public interface PaymentService {
+@Component
+@FeignClient(value = "CLOUD-PAYMENT-SERVICE")
+public interface PaymentFeignService {
 
-     int create(Payment payment);
+    @GetMapping(value = "payment/get/{id}")
+    CommonResult<Payment> getById(@PathVariable(value = "id") Long id);
 
-     Payment getPaymentById(Long id);
+
 }
