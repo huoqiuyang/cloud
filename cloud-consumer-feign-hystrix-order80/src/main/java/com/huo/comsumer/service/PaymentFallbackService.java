@@ -1,9 +1,6 @@
-package com.huo.payment;
+package com.huo.comsumer.service;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.stereotype.Component;
 
 /**
  * 　 功能描述
@@ -24,14 +21,19 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  *
  * 　 @version 1.0
  * 　 @author huoqy
- * 　 @createDate 2022年02月23日 16:45
+ * 　 @createDate 2022年03月02日 17:03
  * 　 @since JDK1.8
  */
-@SpringBootApplication
-@EnableEurekaClient
-@EnableCircuitBreaker
-public class PaymentMainHystrix8001 {
-    public static void main(String[] args) {
-        SpringApplication.run(PaymentMainHystrix8001.class,args);
+@Component
+public class PaymentFallbackService implements PaymentHystrixService{
+
+    @Override
+    public String paymentInfo_Ok(Integer id) {
+        return "paymentInfo_Ok的fallback方法";
+    }
+
+    @Override
+    public String paymentInfo_Timeout(Integer id) {
+        return "paymentInfo_Timeout的fallback方法";
     }
 }
